@@ -12,8 +12,11 @@
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.6",
 		"babel-plugin-react-compiler": "^19.1.0-rc.1",
+		"date-fns": "^4.1.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-slot-counter": "^3.3.1",
+		"react-use-precision-timer": "^3.5.6",
 		"tailwindcss": "^4.1.6"
 	},
 	"devDependencies": {
@@ -21,7 +24,6 @@
 		"@types/react": "^19.1.2",
 		"@types/react-dom": "^19.1.2",
 		"@vitejs/plugin-react": "^4.4.1",
-		"eslint": "^9.25.0",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"globals": "^16.0.0",

@@ -1,18 +1,15 @@
-import { useState } from "react";
+import { Countdown } from "./components/Countdown";
 
 function App() {
-	const [count, setCount] = useState(0);
-
+	const concertDate = new Date("2025-06-16T00:00:00");
+	const albumDate = new Date("2025-05-16T00:00:00");
 	return (
-		<>
-			<h1 className="text-4xl font-bold">Time to Linkin Park</h1>
-			<div className="card">
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-		</>
+		<div className="flex h-screen flex-col items-center justify-center text-white">
+			<main className="flex flex-col items-center justify-center gap-4">
+				<Countdown targetDate={concertDate} title="Time to Linkin Park Concert" />
+				<Countdown targetDate={albumDate} title="Time to Linkin Park Album" />
+			</main>
+		</div>
 	);
 }
 
