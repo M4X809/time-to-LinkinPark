@@ -7,7 +7,7 @@ function App() {
 		<div className="flex h-screen flex-col items-center justify-center text-white">
 			<main className="flex flex-col items-center justify-center gap-4">
 				<Countdown targetDate={concertDate} title="Time to Linkin Park Concert" />
-				<Countdown targetDate={albumDate} title="Time to Linkin Park Album" />
+				{/* <Countdown targetDate={albumDate} title="Time to Linkin Park Album" /> */}
 			</main>
 		</div>
 	);
