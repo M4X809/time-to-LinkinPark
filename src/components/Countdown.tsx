@@ -47,19 +47,43 @@ export function Countdown({ targetDate, title }: CountdownProps) {
 			<h1 className="text-center text-4xl font-bold">{title}</h1>
 			<div className="flex flex-col items-center gap-4 md:flex-row">
 				<div className="flex items-center gap-2">
-					<SlotCounter value={timeValues.days} charClassName="text-4xl" duration={0.5} />
+					<SlotCounter
+						value={timeValues.days}
+						charClassName="text-4xl"
+						duration={0.5}
+						sequentialAnimationMode
+						direction="bottom-up"
+					/>
 					<span className="text-4xl">Tage</span>
 				</div>
 				<div className="flex items-center gap-2">
-					<SlotCounter value={timeValues.hours} charClassName="text-4xl" duration={0.5} />
+					<SlotCounter
+						value={timeValues.hours}
+						charClassName="text-4xl"
+						duration={0.5}
+						sequentialAnimationMode
+						direction="bottom-up"
+					/>
 					<span className="text-4xl">Stunden</span>
 				</div>
 				<div className="flex items-center gap-2">
-					<SlotCounter value={timeValues.minutes} charClassName="text-4xl" duration={0.5} />
+					<SlotCounter
+						value={timeValues.minutes}
+						charClassName="text-4xl"
+						duration={0.5}
+						sequentialAnimationMode
+						direction="bottom-up"
+					/>
 					<span className="text-4xl">Minuten</span>
 				</div>
 				<div className="flex items-center gap-2">
-					<SlotCounter value={timeValues.seconds} charClassName="text-4xl" duration={0.5} />
+					<SlotCounter
+						value={timeValues.seconds}
+						charClassName="text-4xl"
+						duration={0.5}
+						sequentialAnimationMode
+						direction="bottom-up"
+					/>
 					<span className="text-4xl">Sekunden</span>
 				</div>
 			</div>
