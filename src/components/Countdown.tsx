@@ -8,20 +8,12 @@ interface CountdownProps {
 }
 
 export function Countdown({ targetDate, title }: CountdownProps) {
-	const [timeValues, setTimeValues] = useState({
-		days: "00",
-		hours: "00",
-		minutes: "00",
-		seconds: "00",
-	});
-
-	const updateCountdown = useCallback(() => {
+	const calculateTimeValues = useCallback((target: Date) => {
 		const now = new Date();
-		const difference = targetDate.getTime() - now.getTime();
+		const difference = target.getTime() - now.getTime();
 
 		if (difference <= 0) {
-			setTimeValues({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-			return;
+			return { days: "00", hours: "00", minutes: "00", seconds: "00" };
 		}
 
 		const days = Math.floor(difference / (1000 * 60 * 60 * 24))
@@ -37,8 +29,14 @@ export function Countdown({ targetDate, title }: CountdownProps) {
 			.toString()
 			.padStart(2, "0");
 
-		setTimeValues({ days, hours, minutes, seconds });
-	}, [targetDate]);
+		return { days, hours, minutes, seconds };
+	}, []);
+
+	const [timeValues, setTimeValues] = useState(() => calculateTimeValues(targetDate));
+
+	const updateCountdown = useCallback(() => {
+		setTimeValues(calculateTimeValues(targetDate));
+	}, [targetDate, calculateTimeValues]);
 
 	useTimer({ delay: 1000, startImmediately: true }, updateCountdown);
 
