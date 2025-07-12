@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import SlotCounter from "react-slot-counter";
 import { useTimer } from "react-use-precision-timer";
 
@@ -38,7 +38,13 @@ export function CountUp({ startDate, title }: CountUpProps) {
 		setTimeValues(calculateElapsedTimeValues(startDate));
 	}, [startDate]);
 
-	useTimer({ delay: 1000, startImmediately: true }, updateCountUp);
+	const timer = useTimer({ delay: 1000, startImmediately: true }, updateCountUp);
+
+	useEffect(() => {
+		return () => {
+			timer.stop();
+		};
+	}, [timer]);
 
 	return (
 		<div>
