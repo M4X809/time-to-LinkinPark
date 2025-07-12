@@ -8,8 +8,9 @@ export default function Home() {
 				Past Events
 			</Link>{" "}
 			<h1 className="mb-1 text-center text-4xl font-bold">Time until...</h1>
-			<Countdown targetDate={new Date("2026-06-03T18:30:00")} title="Linkin Park Concert 2026" />
 			<Countdown targetDate={new Date("2025-07-16T18:45:00")} title="Imagine Dragons Concert 2025" />
+			<Countdown targetDate={new Date("2026-06-03T18:30:00")} title="Linkin Park Concert 2026" />
+			<Countdown targetDate={new Date("2026-02-21T19:00:00")} title="Motionless in White Concert 2026" />
 		</>
 	);
 }
