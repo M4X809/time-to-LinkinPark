@@ -13,6 +13,7 @@
 		"date-fns": "^4.1.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-router-dom": "^7.6.3",
 		"react-slot-counter": "^3.3.1",
 		"react-use-precision-timer": "^3.5.6",
 		"tailwindcss": "^4.1.11"

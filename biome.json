@@ -1,8 +1,6 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"organizeImports": {
-		"enabled": false
-	},
+	"$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+	"assist": { "actions": { "source": { "organizeImports": "off" } } },
 	"formatter": {
 		"enabled": false
 	},
@@ -16,7 +14,16 @@
 			"style": {
 				"noNonNullAssertion": "off",
 				"useImportType": "warn",
-				"noParameterAssign": "off"
+				"noParameterAssign": "off",
+				"useAsConstAssertion": "error",
+				"useDefaultParameterLast": "error",
+				"useEnumInitializers": "error",
+				"useSelfClosingElements": "error",
+				"useSingleVarDeclarator": "error",
+				"noUnusedTemplateLiteral": "error",
+				"useNumberNamespace": "error",
+				"noInferrableTypes": "error",
+				"noUselessElse": "error"
 			},
 			"a11y": {
 				"useKeyWithClickEvents": "off",
@@ -24,15 +31,16 @@
 				"noSvgWithoutTitle": "off"
 			}
 		},
-		"ignore": [
-			"node_modules/**/*",
-			"biome.json",
-			"build/**/*",
-			".next/**/*",
-			"drizzle/**/*",
-			"*dockerignore*",
-			"**/*.css",
-			"**/*.log"
+		"includes": [
+			"**",
+			"!**/node_modules/**/*",
+			"!**/biome.json",
+			"!**/build/**/*",
+			"!**/.next/**/*",
+			"!**/drizzle/**/*",
+			"!**/*dockerignore*",
+			"!**/*.css",
+			"!**/*.log"
 		]
 	}
 }
