@@ -1,10 +1,13 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import SlotCounter from "react-slot-counter";
+import { useSelectedPerson } from "../context/SelectedPersonContext";
+import type { people } from "../context/SelectedPersonContext";
 import { useTimer } from "react-use-precision-timer";
 
 interface CountdownProps {
 	targetDate: Date;
 	title: string;
+	person: (typeof people)[number] | null | (typeof people)[number][];
 }
 
 const calculateTimeValues = (target: Date) => {
@@ -31,14 +34,31 @@ const calculateTimeValues = (target: Date) => {
 	return { days, hours, minutes, seconds };
 };
 
-export function Countdown({ targetDate, title }: CountdownProps) {
+export function Countdown({ targetDate, title, person }: CountdownProps) {
+	const { selectedPerson } = useSelectedPerson();
+
+	const shouldRender =
+		selectedPerson === person || selectedPerson === null || (Array.isArray(person) && person.includes(selectedPerson));
+
 	const [timeValues, setTimeValues] = useState(() => calculateTimeValues(targetDate));
 
 	const updateCountdown = useCallback(() => {
 		setTimeValues(calculateTimeValues(targetDate));
 	}, [targetDate]);
 
-	useTimer({ delay: 1000, startImmediately: true }, updateCountdown);
+	const timer = useTimer({ delay: 1000, startImmediately: shouldRender }, updateCountdown);
+
+	useEffect(() => {
+		if (!shouldRender) {
+			timer.stop();
+		} else {
+			timer.start();
+		}
+
+		return () => {
+			timer.stop();
+		};
+	}, [timer, shouldRender]);
 
 	return (
 		<div>

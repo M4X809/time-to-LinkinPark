@@ -1,3 +1,4 @@
+import { type people, useSelectedPerson } from "../context/SelectedPersonContext";
 import { useCallback, useState, useEffect } from "react";
 import SlotCounter from "react-slot-counter";
 import { useTimer } from "react-use-precision-timer";
@@ -5,6 +6,7 @@ import { useTimer } from "react-use-precision-timer";
 interface CountUpProps {
 	startDate: Date;
 	title: string;
+	person: (typeof people)[number] | null | (typeof people)[number][];
 }
 
 const calculateElapsedTimeValues = (start: Date) => {
@@ -31,20 +33,33 @@ const calculateElapsedTimeValues = (start: Date) => {
 	return { days, hours, minutes, seconds };
 };
 
-export function CountUp({ startDate, title }: CountUpProps) {
+export function CountUp({ startDate, title, person }: CountUpProps) {
+	const { selectedPerson } = useSelectedPerson();
+
+	const shouldRender =
+		selectedPerson === person || selectedPerson === null || (Array.isArray(person) && person.includes(selectedPerson));
+
 	const [timeValues, setTimeValues] = useState(() => calculateElapsedTimeValues(startDate));
 
 	const updateCountUp = useCallback(() => {
 		setTimeValues(calculateElapsedTimeValues(startDate));
 	}, [startDate]);
 
-	const timer = useTimer({ delay: 1000, startImmediately: true }, updateCountUp);
+	const timer = useTimer({ delay: 1000, startImmediately: shouldRender }, updateCountUp);
 
 	useEffect(() => {
+		if (!shouldRender) {
+			timer.stop();
+		} else {
+			timer.start();
+		}
+
 		return () => {
 			timer.stop();
 		};
-	}, [timer]);
+	}, [timer, shouldRender]);
+
+	if (!shouldRender) return null;
 
 	return (
 		<div>
