@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# Time to Linkin Park 🎸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based countdown timer app for tracking upcoming and past concert events. Built with TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Countdown Timers**: Track time until upcoming concerts
+- **Count-up Timers**: See how long it's been since past concerts
+- **Person Filtering**: Filter events by specific people
+- **Responsive Design**: Clean, dark-themed UI
+- **PWA Ready**: Progressive Web App support
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19 + TypeScript
+- Vite for fast development
+- Tailwind CSS for styling
+- React Router for navigation
+- Date-fns for date handling
 
-```js
-export default tseslint.config({
-	extends: [
-		// Remove ...tseslint.configs.recommended and replace with this
-		...tseslint.configs.recommendedTypeChecked,
-		// Alternatively, use this for stricter rules
-		...tseslint.configs.strictTypeChecked,
-		// Optionally, add this for stylistic rules
-		...tseslint.configs.stylisticTypeChecked,
-	],
-	languageOptions: {
-		// other options...
-		parserOptions: {
-			project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-			tsconfigRootDir: import.meta.dirname,
-		},
-	},
-});
+## Getting Started
+
+```bash
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+- **Home Page**: View countdown timers for upcoming concerts
+- **Past Page**: See count-up timers for past events
+- **Person Select**: Filter events by specific attendees
 
-export default tseslint.config({
-	plugins: {
-		// Add the react-x and react-dom plugins
-		"react-x": reactX,
-		"react-dom": reactDom,
-	},
-	rules: {
-		// other rules...
-		// Enable its recommended typescript rules
-		...reactX.configs["recommended-typescript"].rules,
-		...reactDom.configs.recommended.rules,
-	},
-});
-```
+The app automatically syncs timers and provides a smooth user experience for tracking your concert schedule.
