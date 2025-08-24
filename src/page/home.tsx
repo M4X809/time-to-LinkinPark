@@ -31,7 +31,7 @@ export default function Home() {
 			</Link>{" "}
 			<PeopleSelect />
 			<h1 className="mb-1 text-center text-4xl font-bold">
-				Time until... {selectedPerson ? `für ${selectedPerson}` : "für alle"}
+				Time until... {selectedPerson ? `for ${selectedPerson}` : "for all"}
 			</h1>
 			{!hideAll ? <FutureEvents /> : <p className="text-center text-2xl font-bold">Timer werden synchronisiert...</p>}
 		</>

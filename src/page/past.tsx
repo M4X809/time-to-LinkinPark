@@ -23,7 +23,7 @@ export default function Past() {
 			</Link>{" "}
 			<PeopleSelect />
 			<h1 className="mb-1 text-center text-4xl font-bold">
-				Time since... {selectedPerson ? `für ${selectedPerson}` : "für alle"}
+				Time since... {selectedPerson ? `for ${selectedPerson}` : "for all"}
 			</h1>
 			{!hideAll ? <PastEvents /> : <p className="text-center text-2xl font-bold">Timer werden synchronisiert...</p>}
 		</>
