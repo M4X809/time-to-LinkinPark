@@ -22,10 +22,10 @@ export default function Past() {
 			<div className="mb-8 flex items-center justify-between">
 				<PeopleSelect />
 				<Link
-					to="/"
-					className="m-auto! inline-flex! rounded-xl bg-white/10 text-center text-sm font-medium text-white transition-colors hover:bg-white/15 sm:text-base"
+					to="/past"
+					className="rounded-xl bg-white/10 p-3 text-sm font-medium transition-colors hover:bg-white/15 sm:p-4 sm:text-base"
 				>
-					<p className="text-center">Future Events</p>
+					Future Events
 				</Link>
 			</div>
 
