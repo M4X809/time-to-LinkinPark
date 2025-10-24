@@ -1,2 +1,50 @@
 @import "tailwindcss";
 @import "@mantine/core/styles.css";
+
+/* Mobile-friendly base styles */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure touch targets are at least 44px */
+button,
+a,
+input,
+select,
+textarea {
+	min-height: 44px;
+	min-width: 44px;
+}
+
+/* Improve touch scrolling on iOS */
+.overflow-auto {
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Prevent zoom on input focus on iOS */
+input,
+select,
+textarea {
+	font-size: 16px;
+}
+
+@media (max-width: 640px) {
+	/* Ensure proper spacing on mobile */
+	.container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}

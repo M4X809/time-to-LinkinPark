@@ -7,12 +7,14 @@ export function PeopleSelect() {
 	const { selectedPerson, setSelectedPerson } = useSelectedPerson();
 
 	return (
-		<Box className="absolute top-0 left-0 m-5 rounded-xl bg-white/10 p-2 hover:bg-white/15">
+		<Box className="rounded-xl bg-white/10 p-2 transition-colors hover:bg-white/15 sm:p-3">
 			<Select
 				data={people}
 				value={selectedPerson}
 				onChange={(value) => setSelectedPerson(value as (typeof people)[number] | null)}
-				placeholder="Wähle eine Person"
+				placeholder="Choose a person"
+				size="sm"
+				className="min-w-[140px] sm:min-w-[160px]"
 			/>
 		</Box>
 	);

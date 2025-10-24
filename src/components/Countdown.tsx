@@ -61,48 +61,48 @@ export function Countdown({ targetDate, title, person }: CountdownProps) {
 	}, [timer, shouldRender]);
 
 	return (
-		<div>
-			<h1 className="text-center text-4xl font-bold">{title}</h1>
-			<div className="flex flex-col items-center gap-4 md:flex-row">
-				<div className="flex items-center gap-2">
+		<div className="mx-auto w-full max-w-2xl">
+			<h1 className="mb-6 text-center text-xl font-bold sm:text-2xl lg:text-3xl">{title}</h1>
+			<div className="grid grid-cols-2 gap-4 sm:flex sm:flex-col sm:items-center sm:gap-6 lg:flex-row lg:justify-center">
+				<div className="flex flex-col items-center gap-1 rounded-lg bg-white/5 p-3 sm:flex-row sm:gap-2">
 					<SlotCounter
 						value={timeValues.days}
-						charClassName="text-4xl"
+						charClassName="text-2xl sm:text-3xl lg:text-4xl"
 						duration={0.5}
 						sequentialAnimationMode
 						direction="bottom-up"
 					/>
-					<span className="text-4xl">Tage</span>
+					<span className="text-sm sm:text-lg lg:text-xl">Days</span>
 				</div>
-				<div className="flex items-center gap-2">
+				<div className="flex flex-col items-center gap-1 rounded-lg bg-white/5 p-3 sm:flex-row sm:gap-2">
 					<SlotCounter
 						value={timeValues.hours}
-						charClassName="text-4xl"
+						charClassName="text-2xl sm:text-3xl lg:text-4xl"
 						duration={0.5}
 						sequentialAnimationMode
 						direction="bottom-up"
 					/>
-					<span className="text-4xl">Stunden</span>
+					<span className="text-sm sm:text-lg lg:text-xl">Hours</span>
 				</div>
-				<div className="flex items-center gap-2">
+				<div className="flex flex-col items-center gap-1 rounded-lg bg-white/5 p-3 sm:flex-row sm:gap-2">
 					<SlotCounter
 						value={timeValues.minutes}
-						charClassName="text-4xl"
+						charClassName="text-2xl sm:text-3xl lg:text-4xl"
 						duration={0.5}
 						sequentialAnimationMode
 						direction="bottom-up"
 					/>
-					<span className="text-4xl">Minuten</span>
+					<span className="text-sm sm:text-lg lg:text-xl">Minutes</span>
 				</div>
-				<div className="flex items-center gap-2">
+				<div className="flex flex-col items-center gap-1 rounded-lg bg-white/5 p-3 sm:flex-row sm:gap-2">
 					<SlotCounter
 						value={timeValues.seconds}
-						charClassName="text-4xl"
+						charClassName="text-2xl sm:text-3xl lg:text-4xl"
 						duration={0.5}
 						sequentialAnimationMode
 						direction="bottom-up"
 					/>
-					<span className="text-4xl">Sekunden</span>
+					<span className="text-sm sm:text-lg lg:text-xl">Seconds</span>
 				</div>
 			</div>
 		</div>

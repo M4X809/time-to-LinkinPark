@@ -17,15 +17,29 @@ export default function Past() {
 	const { selectedPerson, hideAll } = useSelectedPerson();
 
 	return (
-		<>
-			<Link to="/" className="absolute top-0 right-0 m-5 rounded-xl bg-white/10 p-2 hover:bg-white/15">
-				Future Events
-			</Link>{" "}
-			<PeopleSelect />
-			<h1 className="mb-1 text-center text-4xl font-bold">
-				Time since... {selectedPerson ? `for ${selectedPerson}` : "for all"}
-			</h1>
-			{!hideAll ? <PastEvents /> : <p className="text-center text-2xl font-bold">Timer werden synchronisiert...</p>}
-		</>
+		<div className="relative w-full max-w-4xl">
+			{/* Navigation and Controls */}
+			<div className="mb-8 flex items-center justify-between">
+				<PeopleSelect />
+				<Link
+					to="/"
+					className="m-auto! inline-flex! rounded-xl bg-white/10 text-center text-sm font-medium text-white transition-colors hover:bg-white/15 sm:text-base"
+				>
+					<p className="text-center">Future Events</p>
+				</Link>
+			</div>
+
+			{/* Main Content */}
+			<div className="space-y-8">
+				<h1 className="text-center text-2xl font-bold sm:text-3xl lg:text-4xl">
+					Time since... {selectedPerson ? `for ${selectedPerson}` : "for all"}
+				</h1>
+				{!hideAll ? (
+					<PastEvents />
+				) : (
+					<p className="text-center text-lg font-bold sm:text-xl lg:text-2xl">Timer werden synchronisiert...</p>
+				)}
+			</div>
+		</div>
 	);
 }

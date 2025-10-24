@@ -25,15 +25,29 @@ export default function Home() {
 	const { selectedPerson, hideAll } = useSelectedPerson();
 
 	return (
-		<>
-			<Link to="/past" className="absolute top-0 right-0 m-5 rounded-xl bg-white/10 p-2 hover:bg-white/15">
-				Past Events
-			</Link>{" "}
-			<PeopleSelect />
-			<h1 className="mb-1 text-center text-4xl font-bold">
-				Time until... {selectedPerson ? `for ${selectedPerson}` : "for all"}
-			</h1>
-			{!hideAll ? <FutureEvents /> : <p className="text-center text-2xl font-bold">Timer werden synchronisiert...</p>}
-		</>
+		<div className="relative w-full max-w-4xl">
+			{/* Navigation and Controls */}
+			<div className="mb-8 flex justify-between">
+				<PeopleSelect />
+				<Link
+					to="/past"
+					className="rounded-xl bg-white/10 p-3 text-sm font-medium transition-colors hover:bg-white/15 sm:p-4 sm:text-base"
+				>
+					Past Events
+				</Link>
+			</div>
+
+			{/* Main Content */}
+			<div className="space-y-8">
+				<h1 className="text-center text-2xl font-bold sm:text-3xl lg:text-4xl">
+					Time until... {selectedPerson ? `for ${selectedPerson}` : "for all"}
+				</h1>
+				{!hideAll ? (
+					<FutureEvents />
+				) : (
+					<p className="text-center text-lg font-bold sm:text-xl lg:text-2xl">Timer werden synchronisiert...</p>
+				)}
+			</div>
+		</div>
 	);
 }
