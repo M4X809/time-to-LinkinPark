@@ -8,13 +8,13 @@ const FutureEvents = () => {
 		<>
 			<Countdown targetDate={new Date("2025-12-09T20:00:00")} title="Bad Omens Concert 2025" person={["J.", "S."]} />
 			<Countdown
-				targetDate={new Date("2026-06-03T18:30:00")}
-				title="Linkin Park Concert 2026"
+				targetDate={new Date("2026-02-21T19:00:00")}
+				title="Motionless in White Concert 2026"
 				person={["J.", "S.", "K."]}
 			/>
 			<Countdown
-				targetDate={new Date("2026-02-21T19:00:00")}
-				title="Motionless in White Concert 2026"
+				targetDate={new Date("2026-06-03T18:30:00")}
+				title="Linkin Park Concert 2026"
 				person={["J.", "S.", "K."]}
 			/>
 		</>

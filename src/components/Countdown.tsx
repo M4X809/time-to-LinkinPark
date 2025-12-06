@@ -38,7 +38,7 @@ export function Countdown({ targetDate, title, person }: CountdownProps) {
 	const { selectedPerson } = useSelectedPerson();
 
 	const shouldRender =
-		selectedPerson === person || selectedPerson === null || (Array.isArray(person) && person.includes(selectedPerson));
+		selectedPerson === null || selectedPerson === person || (Array.isArray(person) && person.includes(selectedPerson));
 
 	const [timeValues, setTimeValues] = useState(() => calculateTimeValues(targetDate));
 
@@ -59,6 +59,10 @@ export function Countdown({ targetDate, title, person }: CountdownProps) {
 			timer.stop();
 		};
 	}, [timer, shouldRender]);
+
+	if (!shouldRender) {
+		return null;
+	}
 
 	return (
 		<div className="mx-auto w-full max-w-2xl">
