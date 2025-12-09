@@ -6,7 +6,7 @@ import { useSelectedPerson } from "../context/SelectedPersonContext";
 const FutureEvents = () => {
 	return (
 		<>
-			<Countdown targetDate={new Date("2025-12-09T20:00:00")} title="Bad Omens Concert 2025" person={["J.", "S."]} />
+			<Countdown targetDate={new Date("2025-12-09T21:00:00")} title="Bad Omens Concert 2025" person={["J.", "S."]} />
 			<Countdown
 				targetDate={new Date("2026-02-21T19:00:00")}
 				title="Motionless in White Concert 2026"
