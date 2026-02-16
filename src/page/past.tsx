@@ -9,6 +9,8 @@ const PastEvents = () => {
 			<CountUp startDate={new Date("2024-09-22T00:00:00")} title="Linkin Park 2024" person={["J.", "S."]} />
 			<CountUp startDate={new Date("2025-06-16T00:00:00")} title="Linkin Park 2025" person={["J.", "S.", "K."]} />
 			<CountUp startDate={new Date("2025-07-16T18:45:00")} title="Imagine Dragons Concert 2025" person={["K."]} />
+			<CountUp startDate={new Date("2025-12-09T21:00:00")} title="Bad Omens Concert 2025" person={["J.", "S."]} />
+
 		</>
 	);
 };
