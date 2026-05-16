@@ -7,11 +7,6 @@ const FutureEvents = () => {
 	return (
 		<>
 			<Countdown
-				targetDate={new Date("2026-02-21T19:00:00")}
-				title="Motionless in White Concert 2026"
-				person={["J.", "S.", "K."]}
-			/>
-			<Countdown
 				targetDate={new Date("2026-06-03T18:30:00")}
 				title="Linkin Park Concert 2026"
 				person={["J.", "S.", "K."]}
